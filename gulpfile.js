@@ -18,7 +18,7 @@ const browserSync = require('browser-sync').create();
 gulp.task('sass', function(done){
     return gulp.src('./private/scss/styles.scss')
         .pipe(sass ({
-            outputStyle:'compact'
+            outputStyle:'nested'
         }))
         .pipe(autoprefixer({
             browsers:['last 10 versions'],
