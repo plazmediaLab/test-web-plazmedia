@@ -1,17 +1,18 @@
 @charset "UTF-8";
-/* Variables y reset de las configuraciones del navegador */
+/* ------------- Variables -----------------*/
 /*------------------------------------------*/
 :root {
   --color-plaz:#0061ff;
   --color-plaz-dark:#00468c;
   --color-sec:#333;
-  --color-bg:white;
+  --color-bg:#fff;
   --color-green:#53BC00;
   --color-green-dark:#417C09;
-  --color-red:red;
+  --color-red:#ff0000;
   --texto-base:12pt;
   --texto-medium:10pt;
   --texto-small:8pt;
+  --titulos-big:3rem;
   --titulos-principal:2.5rem;
   --titulos-secundarios:2rem;
   --titulos-terciarios:1.5rem;
@@ -20,7 +21,9 @@
   --margin-sec:15px;
   --margin-ter:10px;
   --margin-big-50:50px;
-  --margin-big-100:100px; }
+  --margin-big-100:100px;
+  --padding-main:20px;
+  --padding-sec:15px; }
 
 /*  ----------------------------------------------------------
     PLAZreset-CSS
@@ -83,7 +86,7 @@ h3 {
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap; }
 
-/* ------------ Estructura ---------------- */
+/* ------------ Structure import ---------------- */
 /* Sección correspondiente al HEADER dentro del index */
 .header {
   display: -webkit-box;
@@ -232,10 +235,43 @@ h3 {
       text-align: center; } }
 
 @media screen and (min-width: 1000px) {
-  .header > .menu {
-    grid-auto-flow: column;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr; } }
+  .header {
+    font-size: var(--texto-medium); }
+    .header .menu {
+      grid-auto-flow: column;
+      grid-template-rows: 1fr; }
+      .header .menu div.logo {
+        -webkit-box-pack: start;
+        -webkit-justify-content: start;
+        -ms-flex-pack: start;
+        justify-content: start;
+        padding-left: 20px;
+        background: transparent; }
+        .header .menu div.logo a > img {
+          height: 35px; }
+      .header .menu .nav {
+        background: transparent; }
+      .header .menu .socialIcon {
+        margin-left: 20px;
+        background: transparent; }
+        .header .menu .socialIcon .fa-2x {
+          font-size: 1.5rem; }
+      .header .menu .perfilLAB {
+        margin: var(--margin-reset);
+        padding: 0 20px;
+        background: transparent; }
+        .header .menu .perfilLAB img {
+          width: 50px;
+          height: 50px;
+          margin: auto; }
+    .header .textoBanner {
+      margin: var(--margin-reset);
+      padding-left: 50px;
+      margin-top: 150px; }
+      .header .textoBanner h1, .header .textoBanner p {
+        font-size: var(--titulos-big);
+        text-align: start;
+        text-shadow: 0px 1px 2px black; } }
 
 /* Sección correspondiente a ARTICULOS dentro del index */
 .articulos {
@@ -403,7 +439,14 @@ h3 {
   .articulos > .sectiones {
     grid-auto-flow: column;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr; } }
+    grid-template-rows: 1fr; }
+    .articulos > .sectiones .description {
+      margin: var(--margin-reset) var(--margin-main);
+      padding: 10% 5%;
+      grid-column: auto; }
+      .articulos > .sectiones .description a {
+        padding-top: 10px;
+        padding-right: 20px; } }
 
 /* Sección correspondiente a CONTACTO dentro del index */
 .contact {
@@ -483,7 +526,11 @@ h3 {
     .contact > .sendMail .tuWeb {
       grid-column: 1; }
     .contact > .sendMail .iconoMail {
-      grid-row: 1; } }
+      display: initial;
+      grid-row: 1; }
+    .contact > .sendMail .contactUs {
+      margin: var(--margin-reset) var(--margin-main) var(--margin-reset);
+      padding-top: 5px; } }
 
 /* Sección correspondiente al FOOTER dentro del index */
 .footer {
@@ -525,7 +572,7 @@ h3 {
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center;
-      padding: 15px; }
+      padding: var(--padding-sec); }
     .footer .contenedorFoot .menuFooter {
       display: grid;
       grid-gap: 10px;
@@ -559,3 +606,9 @@ h3 {
         padding: 0px; }
         .footer .contenedorFoot .menuFooter span span.puntosFooter {
           display: initial; } }
+
+@media screen and (min-width: 1000px) {
+  .footer .contenedorFoot {
+    height: 65px; } }
+
+/* ------------- Development area -------------- */

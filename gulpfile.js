@@ -15,7 +15,7 @@ const imagemin = require ('gulp-imagemin');
 const browserSync = require('browser-sync').create(); 
 
 
-gulp.task('sass', function(done){
+gulp.task('sass', ()=>{
     return gulp.src('./private/scss/styles.scss')
         .pipe(sass ({
             outputStyle:'nested'
@@ -48,7 +48,8 @@ gulp.task('default', function(done){
         server: './public'
     }),
 
-    gulp.watch('./private/scss/styles.scss', gulp.series('sass')),
+    gulp.watch('./private/scss/*.scss', gulp.series('sass')),
+    gulp.watch('./private/scss/structure/*.scss', gulp.series('sass')),
     gulp.watch('./private/pug/*.pug', gulp.series('pug')).on('change', browserSync.reload),
     done()
 })
